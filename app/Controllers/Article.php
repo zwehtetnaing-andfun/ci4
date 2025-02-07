@@ -11,16 +11,16 @@ class Article extends BaseController
     public function index()
     {
         $articleModel = new \App\Models\Article();
-        $articles = $articleModel->findAll();
+        $articles = $articleModel->findAll(); // get all articles
         
         return view('articles/index',[
             'articles' => $articles
-        ]);
+        ]); // return view and passsing datas
     }
 
     public function create()
     {
-        return view('articles/create');
+        return view('articles/create'); // return create page
     }
 
     public function store()
@@ -29,15 +29,15 @@ class Article extends BaseController
         $articleModel->insert([
             "title" => $this->request->getPost('title'),
             'content' => $this->request->getPost('content')
-        ]);
+        ]); // insert datas
 
-        return redirect()->to('/articles');
+        return redirect()->to('/articles'); // redirect index page
     }
 
     public function edit($id)
     {
         $articleModel = new \App\Models\Article();
-        $article = $articleModel->find($id);
+        $article = $articleModel->find($id); // get specific data
 
         return view('articles/edit',[
             "article" => $article
@@ -50,7 +50,7 @@ class Article extends BaseController
         $articleModel->update($id,[
             "title" => $this->request->getPost('title'),
             "content" => $this->request->getPost('content')
-        ]);
+        ]); // update datas
 
         return redirect()->to('/articles');
     }
@@ -58,7 +58,7 @@ class Article extends BaseController
     public function delete($id)
     {
         $articleModel = new \App\Models\Article();
-        $articleModel->delete($id);
+        $articleModel->delete($id); // delete specific data
 
         return redirect()->to('/articles');
     }
