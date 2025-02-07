@@ -1,6 +1,6 @@
-<?= $this->extend('layouts/app') ?>
+<?= $this->extend('layouts/app') ?>  <!-- extends layouts/ app.php -->
 
-<?= $this->section('content') ?>
+<?= $this->section('content') ?> <!-- start content section -->
 
 <div class="container">
     <div class="row">
@@ -29,4 +29,5 @@
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?= $this->endSection() ?> <!-- end content section. these section will be insert to parent -->
+
